@@ -14,4 +14,10 @@ public class Pino {
 
     }
 
+    public void die(Pino[][] matriz,int linha,int coluna){
+        matriz[linha][coluna]=null;
+    }
+
+
+
 }
