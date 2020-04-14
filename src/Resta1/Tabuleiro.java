@@ -76,12 +76,11 @@ package Resta1;
 
                     int diferenca_linhas=linha_final-linha_inicial;
                     int diferenca_colunas=coluna_final-coluna_inicial;
+                    if (diferenca_colunas<0) diferenca_colunas=diferenca_colunas*(-1);
+                    if(diferenca_linhas<0) diferenca_linhas=diferenca_linhas*(-1);
 
-                    if (((diferenca_colunas!=2)&(diferenca_colunas!=-2))||((diferenca_linhas!=2)&(diferenca_linhas!=-2))){
-                        System.out.println("o pino não pode se movimentar dessa maneira");
-                    }
 
-                    else{
+                    if (((diferenca_colunas==2)&(diferenca_linhas==0))||((diferenca_linhas==2)&(diferenca_colunas==0))){
                         matriz[linha_final][coluna_final] = matriz[linha_inicial][coluna_inicial];
                         matriz[linha_inicial][coluna_inicial] = null;
 
@@ -99,6 +98,11 @@ package Resta1;
                         }
 
                         matriz[linha_dead][coluna_dead].die(matriz, linha_dead, coluna_dead);
+                    }
+
+                    else{
+                        System.out.println("o pino não pode se movimentar dessa maneira");
+
 
                     }
 
