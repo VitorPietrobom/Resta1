@@ -6,6 +6,10 @@ public class Main {
         Tabuleiro tabuleiro= new Tabuleiro();
         tabuleiro.print_tabuleiro();
 
+        int vetor_pos[]={3,1,3,3};
+        tabuleiro.altera_posicao(vetor_pos);
+        tabuleiro.print_tabuleiro();
+
     }
 
 }

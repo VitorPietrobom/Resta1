@@ -73,33 +73,34 @@ package Resta1;
                     System.out.println("posição final do pino a ser movimentado estáocupada ");
                 }
                 else{
+
+                    int diferenca_linhas=linha_final-linha_inicial;
+                    int diferenca_colunas=coluna_final-coluna_inicial;
+
+                    if (((diferenca_colunas!=2)&(diferenca_colunas!=-2))||((diferenca_linhas!=2)&(diferenca_linhas!=-2))){
+                        System.out.println("o pino não pode se movimentar dessa maneira");
+                    }
+
+                    else{
                         matriz[linha_final][coluna_final] = matriz[linha_inicial][coluna_inicial];
                         matriz[linha_inicial][coluna_inicial] = null;
 
                         int linha_dead = 0;
                         int coluna_dead = 0;
 
-                        int diferenca_linhas=linha_final-linha_inicial;
-                        int diferenca_colunas=coluna_final-coluna_inicial;
 
-                        if (((diferenca_colunas!=2)&(diferenca_colunas!=-2))||((diferenca_linhas!=2)&(diferenca_linhas!=-2))){
-                            System.out.println("o pino não pode se movimentar dessa maneira");
+
+                        if (linha_inicial == linha_final) {
+                            linha_dead = linha_inicial;
+                            coluna_dead = (coluna_final + coluna_inicial) / 2;
+                        } else if (coluna_final == coluna_inicial) {
+                            coluna_dead = coluna_inicial;
+                            linha_dead = (linha_final + linha_inicial) / 2;
                         }
 
-                        else{
+                        matriz[linha_dead][coluna_dead].die(matriz, linha_dead, coluna_dead);
 
-                            if (linha_inicial == linha_final) {
-                                linha_dead = linha_inicial;
-                                coluna_dead = (coluna_final + coluna_inicial) / 2;
-                            } else if (coluna_final == coluna_inicial) {
-                                coluna_dead = coluna_inicial;
-                                linha_dead = (linha_final + linha_inicial) / 2;
-                            }
-
-                            matriz[linha_dead][coluna_dead].die(matriz, linha_dead, coluna_dead);
-
-                        }
-
+                    }
 
 
                     }
