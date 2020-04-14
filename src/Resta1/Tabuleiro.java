@@ -59,6 +59,32 @@ package Resta1;
 
         }
 
+        public void altera_posicao(int[] vetor_pos){
+            int linha_inicial=vetor_pos[0];
+            int coluna_inicial=vetor_pos[1];
+            int linha_final=vetor_pos[2];
+            int coluna_final=vetor_pos[3];
+
+            matriz[linha_final][coluna_final]=matriz[linha_inicial][coluna_inicial];
+            matriz[linha_inicial][coluna_inicial]=null;
+
+            int linha_dead=0;
+            int coluna_dead=0;
+
+            if (linha_inicial==linha_final){
+                linha_dead=linha_inicial;
+                coluna_dead=(coluna_final+coluna_inicial)/2;
+            }
+            else if (coluna_final==coluna_inicial){
+                coluna_dead=coluna_inicial;
+                linha_dead=(linha_final+linha_inicial)/2;
+            }
+
+            matriz[linha_dead][coluna_dead].die(matriz, linha_dead,coluna_dead);
+
+        }
+
+
 
 
     }

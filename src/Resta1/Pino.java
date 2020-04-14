@@ -14,8 +14,8 @@ public class Pino {
 
     }
 
-    public void die(Tabuleiro tabuleiro,int linha,int coluna){
-        tabuleiro.matriz[linha][coluna]=null;
+    public void die(Pino[][] matriz,int linha,int coluna){
+        matriz[linha][coluna]=null;
     }
 
 
